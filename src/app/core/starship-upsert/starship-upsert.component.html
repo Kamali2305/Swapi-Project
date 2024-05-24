@@ -1,0 +1,218 @@
+<div class="container mt-5 bg-dark p-3">
+  <h1 class="text-center text-uppercase text-primary">Starship Form</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
+        <div class="row text-light">
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input class="form-control" type="text" formControlName="name" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Model</label>
+              <input class="form-control" type="text" formControlName="model" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Manufacturer</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="manufacturer"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Cost in credits</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="cost_in_credits"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">length</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="length"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Max atmosphering speed</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="max_atmosphering_speed"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Crew</label>
+              <input class="form-control" type="text" formControlName="crew" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Passengers</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="passengers"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Cargo capacity</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="cargo_capacity"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Consumables</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="consumables"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Hyperdrive rating</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="hyperdrive_rating"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">MGLT</label>
+              <input class="form-control" type="text" formControlName="MGLT" />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Starship Class</label>
+              <input
+                class="form-control"
+                type="text"
+                formControlName="starship_class"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Created</label>
+              <input
+                class="form-control"
+                type="date"
+                formControlName="created"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">Edited</label>
+              <input
+                class="form-control"
+                type="date"
+                formControlName="edited"
+              />
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label class="form-label">URL</label>
+              <input class="form-control" type="text" formControlName="url" />
+            </div>
+          </div>
+
+          <div class="col-md-3" formArrayName="pilots">
+            <div class="mb-3">
+              <div
+                class="row justify-content-start align-items-center mb-2"
+                *ngFor="let p of pilotsControls; let i = index"
+              >
+                <div class="col-md-4">
+                  <label class="form-label">Pilots</label>
+                </div>
+                <div class="col-md-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [formControlName]="i"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button
+                    class="btn btn-success"
+                    (click)="onAddPilot()"
+                    type="button"
+                  >
+                    Add Pilot
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3" formArrayName="films">
+            <div class="mb-3">
+              <div
+                class="row justify-content-start align-items-center mb-2"
+                *ngFor="let f of filmsControls; let i = index"
+              >
+                <div class="col-md-4">
+                  <label class="form-label">Film</label>
+                </div>
+                <div class="col-md-8">
+                  <input
+                    type="text"
+                    class="form-control"
+                    [formControlName]="i"
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <button
+                    class="btn btn-success"
+                    (click)="onAddFilm()"
+                    type="button"
+                  >
+                    Add Film
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 text-end">
+            <button class="btn btn-warning me-2" type="submit">Submit</button>
+            <a class="btn btn-danger" routerLink="/">Back</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

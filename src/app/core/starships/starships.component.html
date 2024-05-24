@@ -1,0 +1,103 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <input
+            class="form-control"
+            type="text"
+            [(ngModel)]="searchQuery"
+            placeholder="Search starships..."
+          />
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-success me-2" (click)="onSearch()">
+            Search
+          </button>
+          <button class="btn btn-secondary" (click)="onReset()">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6">
+      <p class="h3 text-primary">List of Startships</p>
+    </div>
+    <div class="col-md-6 text-end">
+      <a
+        *ngIf="isPersonalList"
+        class="btn btn-primary me-2"
+        routerLink="/starship/upsert"
+      >
+        New Starship
+      </a>
+      <button class="btn btn-success" (click)="listToggle()">
+        {{ isPersonalList ? 'Switch to All' : 'Switch to Personal List' }}
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped table-bordered" *ngIf="starships">
+    <thead>
+      <tr>
+        <th (click)="sortBy('name')">
+          Name
+          <i
+            class="bi bi-sort-alpha-{{
+              sortByKey === 'name' && sortAsc ? 'down' : 'up'
+            }}"
+          ></i>
+        </th>
+        <th (click)="sortBy('starship_class')">
+          Starship Class
+          <i
+            class="bi bi-sort-alpha-{{
+              sortByKey === 'starship_class' && sortAsc ? 'down' : 'up'
+            }}"
+          ></i>
+        </th>
+        <th (click)="sortBy('crew')">
+          Crew
+          <i
+            class="bi bi-sort-numeric-{{
+              sortByKey === 'crew' && sortAsc ? 'down' : 'up'
+            }}"
+          ></i>
+        </th>
+        <th (click)="sortBy('passengers')">
+          Passengers
+          <i
+            class="bi bi-sort-numeric-{{
+              sortByKey === 'passengers' && sortAsc ? 'down' : 'up'
+            }}"
+          ></i>
+        </th>
+        <th>More Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let starship of starships">
+        <td>{{ starship.name }}</td>
+        <td>{{ starship.starship_class }}</td>
+        <td>{{ starship.crew }}</td>
+        <td>{{ starship.passengers }}</td>
+        <td class="text-center">
+          @if(!isPersonalList){
+          <button class="btn btn-warning me-2" (click)="onAdd(starship)">
+            Add to Favorite
+          </button>
+          }@else{
+          <button class="btn btn-danger me-2" (click)="onDelete(starship.url)">
+            Remove from Favorite
+          </button>
+          }
+          <button class="btn btn-primary" (click)="onDetails(starship)">
+            Details
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

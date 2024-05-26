@@ -1,6 +1,6 @@
 # StarwarClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+[This project](https://starwar2-nxcgqyorha-oa.a.run.app/) was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
 
 ## Development server
 

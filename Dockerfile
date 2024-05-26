@@ -23,7 +23,7 @@ ENV NGINX_PORT=8080
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy the built artifacts from the build stage to the Nginx public directory
-COPY --from=build /app/dist/my-app/browser/ /usr/share/nginx/html
+COPY --from=build /app/dist/starwar-client/browser/ /usr/share/nginx/html
 
 # Expose port NGINX_PORT for the Nginx server
 EXPOSE $NGINX_PORT

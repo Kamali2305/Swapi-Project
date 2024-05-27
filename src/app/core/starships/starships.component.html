@@ -105,7 +105,16 @@
 
   <div *ngFor="let starship of starships"></div>
 
-  <div>Crew Total: {{crewTotalMin()}} - {{crewTotalMax()}}</div>
-  
-</div>
+  <div class="mt-4">
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title text-primary">Crew Total</h5>
+        <p class="card-text">
+          <span class="h4">{{crewTotalMin()}}</span> - <span class="h4">{{crewTotalMax()}}</span>
+          <br><br>
+        </p>
+      </div>
+    </div>
+  </div>
+  </div>
 

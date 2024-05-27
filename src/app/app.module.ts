@@ -11,6 +11,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarshipUpsertComponent } from './core/starship-upsert/starship-upsert.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { StarshipUpsertComponent } from './core/starship-upsert/starship-upsert.
     StarshipComponent,
     NavbarComponent,
     StarshipUpsertComponent,
+    NotFoundComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

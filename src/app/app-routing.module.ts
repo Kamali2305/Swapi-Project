@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { StarshipComponent } from './core/starship/starship.component';
 import { StarshipsComponent } from './core/starships/starships.component';
 import { StarshipUpsertComponent } from './core/starship-upsert/starship-upsert.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -18,6 +19,15 @@ const appRoutes: Routes = [
     path: 'starship/:id/:isNew',
     component: StarshipComponent,
   },
+
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'not-found',
+  }
 ];
 
 @NgModule({

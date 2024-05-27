@@ -46,4 +46,24 @@ export class StarwarService {
       this.starships.splice(index, 1);
     }
   }
+
+  
+
+//   crewTotal(starship: IStarship){
+    
+//     let sum = 0;
+//   if (starship.crew) {
+//     // Split the crew string if it's a comma-separated list
+//     const crewArray = starship.crew.split(',');
+//     // Loop through the crewArray and sum up the crew members
+//     for (let i = 0; i < crewArray.length; i++) {
+//       // Convert each crew member to a number and add it to the sum
+//       sum += Number(crewArray[i]);
+
+//       console.log('display' + sum );
+//     }
+//   }
+//   return sum;
+// }
+
 }

@@ -76,6 +76,7 @@
         </th>
         <th>More Action</th>
       </tr>
+      
     </thead>
     <tbody>
       <tr *ngFor="let starship of starships">
@@ -98,6 +99,13 @@
           </button>
         </td>
       </tr>
+
     </tbody>
   </table>
+
+  <div *ngFor="let starship of starships"></div>
+
+  <div>Crew Total: {{crewTotalMin()}} - {{crewTotalMax()}}</div>
+  
 </div>
+

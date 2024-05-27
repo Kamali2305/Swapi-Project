@@ -23,7 +23,9 @@ export class StarshipsComponent {
 
   ngOnInit() {
     this.loadData();
+    console.log('hi');
   }
+  
 
   loadData() {
     if (!this.isPersonalList) {

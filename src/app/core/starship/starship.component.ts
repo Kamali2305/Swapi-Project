@@ -22,7 +22,9 @@ export class StarshipComponent {
       this.id = params['id'];
       this.isNew = params['isNew'] === 'true';
       this.loadStarship(this.id, this.isNew);
+      
     });
+    console.log('messagetest');
   }
 
   loadStarship(id: string, isNew: boolean) {

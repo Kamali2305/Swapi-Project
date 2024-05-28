@@ -20,8 +20,16 @@
           <a class="nav-link" routerLink="/starship/upsert">Starships</a>
         </li>
       </ul>
-      <div class = "d-flex">
-        <button class="btn btn-success" type="button" routerLink="/user-auth">Login</button>
+      <div class = "d-flex justify-content-center align-items-center">
+        <div class="me-2">{{ user?.email }}</div>
+        <a class="btn btn-success" 
+        type="button" 
+        routerLink="/user-auth" *ngIf="!user">
+          Login
+        </a>
+        <a *ngIf="user" class="btn btn-danger" 
+        type="button" (click)="onLogout()" >Logout
+        </a>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { StarshipsComponent } from './core/starships/starships.component';
 import { StarshipComponent } from './core/starship/starship.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
@@ -14,7 +14,8 @@ import { StarshipUpsertComponent } from './core/starship-upsert/starship-upsert.
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
-import { SpinnerComponent } from './spinner/spinner.component';
+import { SpinnerComponent } from './core/spinner/spinner.component';
+import { errorInterceptor } from './_interceptor/error.interceptor';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
       positionClass: 'toast-bottom-right',
     }),
   ],
-  providers: [],
+  providers: [provideHttpClient(withInterceptors([errorInterceptor]))],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

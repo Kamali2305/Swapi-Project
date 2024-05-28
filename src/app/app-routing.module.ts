@@ -6,6 +6,7 @@ import { StarshipsComponent } from './core/starships/starships.component';
 import { StarshipUpsertComponent } from './core/starship-upsert/starship-upsert.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { UserAuthComponent } from './user-auth/user-auth.component';
+import { authGuard } from './_guards/auth.guard';
 
 const appRoutes: Routes = [
   {
@@ -13,7 +14,7 @@ const appRoutes: Routes = [
     component: StarshipsComponent,
   },
   {
-    path: 'user/auth',
+    path: 'user-auth',
     component: UserAuthComponent,
   },
   
@@ -21,10 +22,12 @@ const appRoutes: Routes = [
   {
     path: 'starship/upsert',
     component: StarshipUpsertComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'starship/:id/:isNew',
     component: StarshipComponent,
+    //canActivate: [authGuard],
   },
 
   {

@@ -56,6 +56,6 @@ Access the application in your web browser at http://localhost:4200.
 ## Contributing
 Contributions are welcome! If you would like to contribute to the project, feel free to submit a pull request or open an issue with any suggestions or improvements.
 ## Extra work
- I have also done a project with the concept of Image upload in an enhanced version of the original application,offering additional features such as Image upload functionality,card-based display of the starships and Firebase integration for storing images.It provides a comprehensive solution for managing and viewing starships from the Starwars universe, along with user authentication for personalized experiences.You can check the [project] ( https://starwars1-nxcgqyorha-oa.a.run.app/) here and here is the [Github] (https://github.com/Kamali2305/Starwars1.git)for that program
+ I have also done a project with the concept of Image upload in an enhanced version of the original application,offering additional features such as Image upload functionality,card-based display of the starships and Firebase integration for storing images.It provides a comprehensive solution for managing and viewing starships from the Starwars universe, along with user authentication for personalized experiences.You can check the [project]( https://starwars1-nxcgqyorha-oa.a.run.app/) here and here is the [Github](https://github.com/Kamali2305/Starwars1.git)for that program
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

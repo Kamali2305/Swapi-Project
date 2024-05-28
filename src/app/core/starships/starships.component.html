@@ -1,5 +1,8 @@
 
-<app-spinner *ngIf="isLoading"></app-spinner>
+<div *ngIf="!spinner">
+  <h3 class="text-center text-primary">Please wait</h3>
+  <app-spinner ></app-spinner>
+</div>
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-12">

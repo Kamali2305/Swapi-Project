@@ -15,7 +15,7 @@ export class StarshipsComponent {
   searchQuery: string = '';
   sortByKey: string = '';
   sortAsc: boolean = true;
-  isLoading: boolean = true;
+ public spinner: boolean = false;
   
   constructor(
     private starwarsService: StarwarService,
@@ -25,7 +25,7 @@ export class StarshipsComponent {
 
   ngOnInit() {
     this.loadData();
-    this.isLoading = false;
+   // this.isLoading = true;
   }
   
 
@@ -34,10 +34,18 @@ export class StarshipsComponent {
       this.starwarsService
         .getStarships()
         .subscribe((response: StarshipAPIResponse) => {
-          this.starships = response.results;
-        });
+         
+          setTimeout(()=>{
+            this.starships = response.results;
+          },1000)
+
+          setTimeout(()=>{
+            this.spinner = true;
+          },1000)
+      });
     } else {
       this.starships = this.starwarsService.starships;
+      //this.isLoading = false;
     }
   }
 

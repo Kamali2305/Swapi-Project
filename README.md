@@ -1,6 +1,6 @@
 # Angular Starship Management System
 ## Overview:
-You can check this [project](https://starwar2-nxcgqyorha-oa.a.run.app/)here. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+You can check this [project](https://starwar2-nxcgqyorha-oa.a.run.app/) here. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
 The Angular Starship Management System is a web application developed using Angular that allows users to manage and view starships from the Star Wars universe. It provides features such as browsing a list of starships, viewing detailed information about each starship, adding starships to a personal list, and authenticating users for personalized experiences.
 
 ## Development server

@@ -16,6 +16,7 @@ export class StarshipsComponent {
   sortByKey: string = '';
   sortAsc: boolean = true;
   isLoading: boolean = true;
+  
   constructor(
     private starwarsService: StarwarService,
     private toastr: ToastrService,

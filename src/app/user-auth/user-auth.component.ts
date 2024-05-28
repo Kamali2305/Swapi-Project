@@ -13,25 +13,25 @@ export class UserAuthComponent {
   user: IUser={ emailAddress:'', password:''};
   @ViewChild('f') authForm: NgForm;
 
-  constructor(private authService: AuthService ){}
-
   registerToggle(){
     this.isRegisterMode = !this.isRegisterMode;
-   
-
-   
   }
+  
+  constructor(private authService: AuthService ){}
+
  onSubmit(){
     this.user.emailAddress = this.authForm.value.emailAddress;
     this.user.password = this.authForm.value.userPassword;
+
     if (this.isRegisterMode) {
       this.authService.register(this.user);
-    } else{
-
+     } else {
       this.authService.login(this.user);
 
     }
-
   }
-
 }
+
+
+
+

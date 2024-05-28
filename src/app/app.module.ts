@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarshipUpsertComponent } from './core/starship-upsert/starship-upsert.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { FooterComponent } from './core/footer/footer.component';
+import { UserAuthComponent } from './user-auth/user-auth.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { FooterComponent } from './core/footer/footer.component';
     StarshipUpsertComponent,
     NotFoundComponent,
     FooterComponent,
+    UserAuthComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,

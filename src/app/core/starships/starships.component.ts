@@ -15,6 +15,7 @@ export class StarshipsComponent {
   searchQuery: string = '';
   sortByKey: string = '';
   sortAsc: boolean = true;
+  isLoading: boolean = true;
   constructor(
     private starwarsService: StarwarService,
     private toastr: ToastrService,
@@ -23,7 +24,7 @@ export class StarshipsComponent {
 
   ngOnInit() {
     this.loadData();
-    console.log('hi');
+    this.isLoading = false;
   }
   
 

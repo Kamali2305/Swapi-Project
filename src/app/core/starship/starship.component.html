@@ -1,3 +1,6 @@
+
+
+<app-spinner *ngIf="isLoading"></app-spinner>
 <div class="container mt-5" *ngIf="starship">
   <div class="row">
     <div class="col-md-12">
@@ -54,7 +57,7 @@
           <th>Starship Class</th>
           <td>{{ starship.starship_class }}</td>
         </tr>
-        <tr>
+        <!-- <tr>
           <th>Pilots</th>
           <td>
             <ul>
@@ -63,7 +66,7 @@
               </li>
             </ul>
           </td>
-        </tr>
+        </tr> -->
         <!--
         <tr>
           <th>Films</th>

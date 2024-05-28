@@ -1,5 +1,5 @@
 <div class="container mt-5 bg-dark p-3">
-  <h1 class="text-center text-uppercase text-primary">Starship Form</h1>
+  <h1 class="text-center text-uppercase text-primary">Create Starship</h1>
   <div class="row">
     <div class="col-md-12">
       <form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit()">
@@ -8,6 +8,8 @@
             <div class="mb-3">
               <label class="form-label">Name</label>
               <input class="form-control" type="text" formControlName="name" />
+              <span *ngIf="!form.get('name').valid && form.get('name').touched"
+              class="text-danger">Name is Required</span>
             </div>
           </div>
           <div class="col-md-3">
@@ -144,7 +146,7 @@
               <input class="form-control" type="text" formControlName="url" />
             </div>
           </div>
-
+<!-- 
           <div class="col-md-3" formArrayName="pilots">
             <div class="mb-3">
               <div
@@ -205,10 +207,10 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="col-md-6 text-end">
-            <button class="btn btn-warning me-2" type="submit">Submit</button>
+            <button class="btn btn-warning me-2" type="submit" [disabled]="!form.valid">Submit</button>
             <a class="btn btn-danger" routerLink="/">Back</a>
           </div>
         </div>

@@ -12,6 +12,7 @@ export class StarshipComponent {
   id: string = '';
   isNew: boolean;
   starship: IStarship = null;
+  isLoading: boolean = true;
   constructor(
     private route: ActivatedRoute,
     private starwarService: StarwarService
@@ -22,6 +23,8 @@ export class StarshipComponent {
       this.id = params['id'];
       this.isNew = params['isNew'] === 'true';
       this.loadStarship(this.id, this.isNew);
+
+      this.isLoading = false;
       
     });
     console.log('messagetest');

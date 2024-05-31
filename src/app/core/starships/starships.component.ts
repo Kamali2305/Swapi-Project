@@ -56,26 +56,83 @@ export class StarshipsComponent {
 
 
 
+// crewTotalMin(): number {
+//   let sum: number = 0;
+//   for (let i = 0; i < this.starships.length; i++) {
+//     if (this.starships[i].crew) {
+//       // Remove commas from crew string
+//       const crewWithoutCommas = this.removeCommasFromString(this.starships[i].crew.toString());
+//       // Split the crew string into individual characters
+//       const crewMembers = crewWithoutCommas.split(',');
+
+//       // Loop through each character and add numeric values to the sum
+//       for (let j = 0; j < crewMembers.length; j++) {
+//         // Check if crew member is a range
+//         if (crewMembers[j].includes('-')) {
+//           // Split the range into minimum and maximum values
+//           const [min, max] = crewMembers[j].split('-').map(Number);
+//           // Add the minimum value to the sum
+//           sum += min;
+//         } else {
+//           // If crew member is not a range, directly add its value to the sum
+//           const crewMember = parseFloat(crewMembers[j].trim());
+//           if (!isNaN(crewMember)) {
+//             sum += crewMember;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   return sum;
+// }
+
+// crewTotalMax(): number {
+//   let sum: number = 0;
+//   for (let i = 0; i < this.starships.length; i++) {
+//     if (this.starships[i].crew) {
+//       // Remove commas from crew string
+//       const crewWithoutCommas = this.removeCommasFromString(this.starships[i].crew.toString());
+//       // Split the crew string into individual crew members
+//       const crewMembers = crewWithoutCommas.split(',');
+
+//       // Loop through each crew member and add numeric values to the sum
+//       for (let j = 0; j < crewMembers.length; j++) {
+//         // Check if crew member is a range
+//         if (crewMembers[j].includes('-')) {
+//           // Split the range into minimum and maximum values
+//           const [min, max] = crewMembers[j].split('-').map(Number);
+//           // Add the maximum value to the sum
+//           sum += max;
+//         } else {
+//           // If crew member is not a range, directly add its value to the sum
+//           const crewMember = parseFloat(crewMembers[j].trim());
+//           if (!isNaN(crewMember)) {
+//             sum += crewMember;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   return sum;
+// }
+
+// removeCommasFromString(str: string): string {
+//   return str.replace(/,/g, '');
+// }
+
 crewTotalMin(): number {
   let sum: number = 0;
-  for (let i = 0; i < this.starships.length; i++) {
-    if (this.starships[i].crew) {
-      // Remove commas from crew string
-      const crewWithoutCommas = this.removeCommasFromString(this.starships[i].crew.toString());
-      // Split the crew string into individual characters
+  for (const starship of this.starships) {
+    if (starship.crew) {
+      const crewWithoutCommas = this.removeCommasFromString(starship.crew.toString());
       const crewMembers = crewWithoutCommas.split(',');
 
-      // Loop through each character and add numeric values to the sum
-      for (let j = 0; j < crewMembers.length; j++) {
-        // Check if crew member is a range
-        if (crewMembers[j].includes('-')) {
-          // Split the range into minimum and maximum values
-          const [min, max] = crewMembers[j].split('-').map(Number);
-          // Add the minimum value to the sum
+      for (const member of crewMembers) {
+        if (member.includes('-')) {
+          const [min] = member.split('-').map(Number);
           sum += min;
         } else {
-          // If crew member is not a range, directly add its value to the sum
-          const crewMember = parseFloat(crewMembers[j].trim());
+          const crewMember = parseFloat(member.trim());
           if (!isNaN(crewMember)) {
             sum += crewMember;
           }
@@ -88,24 +145,17 @@ crewTotalMin(): number {
 
 crewTotalMax(): number {
   let sum: number = 0;
-  for (let i = 0; i < this.starships.length; i++) {
-    if (this.starships[i].crew) {
-      // Remove commas from crew string
-      const crewWithoutCommas = this.removeCommasFromString(this.starships[i].crew.toString());
-      // Split the crew string into individual crew members
+  for (const starship of this.starships) {
+    if (starship.crew) {
+      const crewWithoutCommas = this.removeCommasFromString(starship.crew.toString());
       const crewMembers = crewWithoutCommas.split(',');
 
-      // Loop through each crew member and add numeric values to the sum
-      for (let j = 0; j < crewMembers.length; j++) {
-        // Check if crew member is a range
-        if (crewMembers[j].includes('-')) {
-          // Split the range into minimum and maximum values
-          const [min, max] = crewMembers[j].split('-').map(Number);
-          // Add the maximum value to the sum
+      for (const member of crewMembers) {
+        if (member.includes('-')) {
+          const [, max] = member.split('-').map(Number);
           sum += max;
         } else {
-          // If crew member is not a range, directly add its value to the sum
-          const crewMember = parseFloat(crewMembers[j].trim());
+          const crewMember = parseFloat(member.trim());
           if (!isNaN(crewMember)) {
             sum += crewMember;
           }

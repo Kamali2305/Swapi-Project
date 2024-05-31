@@ -12,7 +12,7 @@ export class StarshipComponent {
   id: string = '';
   isNew: boolean;
   starship: IStarship = null;
-  public spinner: boolean = false;
+  //public spinner: boolean = false;
   constructor(
     private route: ActivatedRoute,
     private starwarService: StarwarService

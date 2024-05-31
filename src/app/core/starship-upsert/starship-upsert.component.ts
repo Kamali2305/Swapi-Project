@@ -37,8 +37,8 @@ export class StarshipUpsertComponent {
       created: new FormControl(),
       edited: new FormControl(),
       url: new FormControl(),
-      pilots: new FormArray([]),
-      films: new FormArray([]),
+      //pilots: new FormArray([]),
+      //films: new FormArray([]),
     });
   }
 

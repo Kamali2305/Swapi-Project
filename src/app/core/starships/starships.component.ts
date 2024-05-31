@@ -122,49 +122,51 @@ export class StarshipsComponent {
 
 crewTotalMin(): number {
   let sum: number = 0;
-  for (const starship of this.starships) {
-    if (starship.crew) {
-      const crewWithoutCommas = this.removeCommasFromString(starship.crew.toString());
-      const crewMembers = crewWithoutCommas.split(',');
-
-      for (const member of crewMembers) {
-        if (member.includes('-')) {
-          const [min] = member.split('-').map(Number);
-          sum += min;
-        } else {
-          const crewMember = parseFloat(member.trim());
-          if (!isNaN(crewMember)) {
-            sum += crewMember;
+    for (const starship of this.starships) { // Outer loop over starships
+      if (starship.crew) {
+        const crewWithoutCommas = this.removeCommasFromString(starship.crew.toString());
+        const crewMembers = crewWithoutCommas.split(','); // Split crew string into parts
+  
+        for (const member of crewMembers) { // Loop over crew members
+          if (member.includes('-')) {
+            const [min] = member.split('-').map(Number); // Split range into min and max
+            sum += min; // Add the minimum value to the sum
+          } else {
+            const crewMember = parseFloat(member.trim()); // Parse crew member value
+            if (!isNaN(crewMember)) {
+              sum += crewMember; // Add the value to the sum
+            }
           }
         }
       }
     }
+    return sum;
   }
-  return sum;
-}
-
-crewTotalMax(): number {
-  let sum: number = 0;
-  for (const starship of this.starships) {
-    if (starship.crew) {
-      const crewWithoutCommas = this.removeCommasFromString(starship.crew.toString());
-      const crewMembers = crewWithoutCommas.split(',');
-
-      for (const member of crewMembers) {
-        if (member.includes('-')) {
-          const [, max] = member.split('-').map(Number);
-          sum += max;
-        } else {
-          const crewMember = parseFloat(member.trim());
-          if (!isNaN(crewMember)) {
-            sum += crewMember;
+  
+  crewTotalMax(): number {
+    let sum: number = 0;
+    for (const starship of this.starships) { // Outer loop over starships
+      if (starship.crew) {
+        const crewWithoutCommas = this.removeCommasFromString(starship.crew.toString());
+        const crewMembers = crewWithoutCommas.split(','); // Split crew string into parts
+  
+        for (const member of crewMembers) { // Loop over crew members
+          if (member.includes('-')) {
+            const [, max] = member.split('-').map(Number); // Split range into min and max
+            sum += max; // Add the maximum value to the sum
+          } else {
+            const crewMember = parseFloat(member.trim()); // Parse crew member value
+            if (!isNaN(crewMember)) {
+              sum += crewMember; // Add the value to the sum
+            }
           }
         }
       }
     }
+    return sum;
   }
-  return sum;
-}
+  
+
 
 removeCommasFromString(str: string): string {
   return str.replace(/,/g, '');
